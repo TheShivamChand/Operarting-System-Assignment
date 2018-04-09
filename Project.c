@@ -19,11 +19,15 @@ int main()
 	printf("\n\t\t\t****************************************");
 	printf("\n\t\t\t*                                      *");
 	printf("\n\t\t\t*                                      *");
-	printf("\n\t\t\t*                                      *");
 	printf("\n\t\t\t*     Traffic Intersection Problem     *");
 	printf("\n\t\t\t*                                      *");
 	printf("\n\t\t\t*                                      *");
-	printf("\n\t\t\t*                                      *");
 	printf("\n\t\t\t****************************************");
+	
+	pthread_t x,y;
+	pthread_create(&x,NULL,&cara,NULL);
+	pthread_create(&y,NULL,&carb,NULL);
+	pthread_join(x,NULL);
+	pthread_join(y,NULL);
 	
 }
