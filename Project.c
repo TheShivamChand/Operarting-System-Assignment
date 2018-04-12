@@ -1,20 +1,57 @@
 #include<stdio.h>
+#include<conio.h>
 #include<pthread.h>
 #include<unistd.h>
-#include<conio.h>
 
 pthread_mutex_t p;
-int initial1,initial2,final1,final2;
+int initiala,initialb,finala,finalb;
 
-/*void *cara
+void *cara()
 {
 	
+	pthread_mutex_lock(&p);
+	
+	initiala=rand()%4+1;
+	
+	finala=rand()%4+1;
+	
+	printf("Initial: ",initiala);
+	printf("\nFinal: ",finala);
+	
+	if((initiala==initialb||finala==finalb)||(initiala==initialb||finala!==finalb)||(initiala==finalb||initialb==finala))
+	{
+		printf("\nSecond Car is entering Critical section");
+		sleep(1);
+	}
+	else
+	{
+		printf("\nBoth cars are going to collide");
+	}
+	pthread_mutex_unlock(&p);
 }
 
-void *carb
+void *carb()
 {
+	pthread_mutex_lock(&p);
 	
-}*/
+	initialb=rand()%4+1;
+	
+	finalb=rand()%4+1;
+	
+	printf("Initial: ",initialb);
+	printf("\nFinal: ",finalb);
+	
+	if((initiala==initialb || finala==finalb)||(initiala==initialb||finala!==finalb)||(initiala==finalb|| initialb==finala))
+	{
+		printf("\nFirst Car is entering Critical section");
+		sleep(1);
+	}
+	else
+	{
+		printf("\nBoth cars are going to collide");
+	}
+	pthread_mutex_unlock(&p);
+}
 
 char intro()
 {
@@ -22,9 +59,8 @@ char intro()
 }
 int main()
 {
-	
 	intro();
-	getch();
+	//system("cls");
 	printf("\n\t\t\t****************************************");
 	printf("\n\t\t\t*                                      *");
 	printf("\n\t\t\t*                                      *");
@@ -33,6 +69,7 @@ int main()
 	printf("\n\t\t\t*                                      *");
 	printf("\n\t\t\t****************************************");
 	
+	pthread_mutex_init(&p,NULL);
 	pthread_t x,y;
 	pthread_create(&x,NULL,&cara,NULL);
 	pthread_create(&y,NULL,&carb,NULL);
