@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<conio.h>
+#include<stdlib.h>
 #include<pthread.h>
 #include<unistd.h>
 
@@ -11,14 +12,14 @@ void *cara()
 	
 	pthread_mutex_lock(&p);
 	
-	initiala=rand()%4+1;
+	initiala=rand()%4;
 	
-	finala=rand()%4+1;
+	finala=rand()%4;
 	
-	printf("Initial: ",initiala);
-	printf("\nFinal: ",finala);
+	printf("\n\nInitial: %d",initiala);
+	printf("\nFinal: %d",finala);
 	
-	if((initiala==initialb||finala==finalb)||(initiala==initialb||finala!==finalb)||(initiala==finalb||initialb==finala))
+	if((initiala==initialb||finala==finalb)||(initiala==initialb||finala!=finalb)||(initiala==finalb||initialb==finala))
 	{
 		printf("\nSecond Car is entering Critical section");
 		sleep(1);
@@ -38,10 +39,10 @@ void *carb()
 	
 	finalb=rand()%4+1;
 	
-	printf("Initial: ",initialb);
-	printf("\nFinal: ",finalb);
+	printf("\n\n\nInitial: %d",initialb);
+	printf("\nFinal: %d",finalb);
 	
-	if((initiala==initialb || finala==finalb)||(initiala==initialb||finala!==finalb)||(initiala==finalb|| initialb==finala))
+	if((initiala==initialb || finala==finalb)||(initiala==initialb||finala!=finalb)||(initiala==finalb|| initialb==finala))
 	{
 		printf("\nFirst Car is entering Critical section");
 		sleep(1);
