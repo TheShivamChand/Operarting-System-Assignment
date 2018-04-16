@@ -30,7 +30,7 @@ int main()
 	printf("\n\t\t\t*                                      *");
 	printf("\n\t\t\t*      Made By- Shivam Chand Deopa     *");
 	printf("\n\t\t\t*      Roll No.- B43                   *");
-	printf("\n\t\t\t*      Reg No.- 11605417               *");
+	printf("\n\t\t\t*      Reg No.- 11605317               *");
 	printf("\n\t\t\t*      Section- K1607                  *");
 	printf("\n\t\t\t****************************************");
 	
@@ -128,6 +128,7 @@ if(hop==9){
 break;}
 }
 }
+
 void *NorthToEast()
 {
 sem_wait(&sema);
@@ -136,6 +137,7 @@ printf("\n*****************************");
 sleep(1);
 sem_post(&sema);
 }
+
 void *NorthToWest()
 {
 sem_wait(&sema);
@@ -144,6 +146,7 @@ printf("\n*****************************");
 sleep(1);
 sem_post(&sema);
 }
+
 void *NorthToSouth()
 {
 sem_wait(&sema);
@@ -161,6 +164,7 @@ printf("\n*****************************");
 sleep(1);
 sem_post(&sema);
 }
+
 void *SouthToWest()
 {
 sem_wait(&sema);
@@ -169,6 +173,7 @@ printf("\n*****************************");
 sleep(1);
 sem_post(&sema);
 }
+
 void *SouthToNorth()
 {
 sem_wait(&sema);
@@ -186,6 +191,7 @@ printf("\n*****************************");
 sleep(1);
 sem_post(&sema);
 }
+
 void *EastToNorth()
 {
 sem_wait(&sema);
@@ -194,6 +200,7 @@ printf("\n*****************************");
 sleep(1);
 sem_post(&sema);
 }
+
 void *EastToSouth()
 {
 sem_wait(&sema);
@@ -211,6 +218,7 @@ printf("\n*****************************");
 sleep(1);
 sem_post(&sema);
 }
+
 void *WestToNorth()
 {
 sem_wait(&sema);
@@ -219,6 +227,7 @@ printf("\n*****************************");
 sleep(1);
 sem_post(&sema);
 }
+
 void *WestToSouth()
 {
 sem_wait(&sema);
